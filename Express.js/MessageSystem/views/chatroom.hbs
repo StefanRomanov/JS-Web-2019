@@ -1,0 +1,42 @@
+<h1>Chatroom with {{otherUser}}</h1>
+{{#if isBlocked}}
+<form method="post" class="chat-form" action="/unblock/{{otherUser}}">
+    <button class="btn btn-primary">Unblock</button>
+</form>
+{{else}}
+<form method="post" class="chat-form" action="/block/{{otherUser}}">
+    <button class="btn btn-danger">Block</button>
+</form>
+{{/if}}
+<div class="chat-wrapper">
+    <div id="message-wrapper">
+        {{#each messages}}
+        {{#if this.isRight}}
+            {{#if this.isImage}}
+            <div class="message-row">
+                <img class="thread-message right" src="{{this.content}}">
+            </div>
+            {{else}}
+            <div class="message-row">
+                <span class="thread-message right">{{this.content}}</span>
+            </div>
+            {{/if}}
+        {{else}}
+            {{#if this.isImage}}
+            <div class="message-row">
+                <img class="thread-message left" src="{{this.content}}">
+            </div>
+            {{else}}
+            <div class="message-row">
+                <span class="thread-message left">{{this.content}}</span>
+            </div>
+            {{/if}}
+        {{/if}}
+        {{/each}}
+    </div>
+    <form method="post" class="chat-form">
+        <textarea rows="5" name="message" placeholder="message"{{#if weBlocked}}disabled {{/if}}></textarea>
+        <input value="{{thread}}" name="threadId" hidden />
+        <button class="btn btn-primary send" {{#if weBlocked}}disabled {{/if}}>Send</button>
+    </form>
+</div>

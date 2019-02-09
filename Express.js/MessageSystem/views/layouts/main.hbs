@@ -1,0 +1,44 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Message System</title>
+    <link href="/css/site.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="nav">
+                <ul class="menu">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    <li></li>
+                    {{#if currentUser}}
+                    <li class="right">
+                        <a href="/users/logout">Logout</a>
+                    </li>
+                    <li class="right">Welcome,{{currentUser.username}}!</li>
+                    {{else}}
+                    <li class="right">
+                        <a href="/users/register">Register</a>
+                    </li>
+                    <li class="right">
+                        <a href="/users/login">Login</a>
+                    </li>
+                    {{/if}}
+                </ul>
+            </div>
+        </header>
+        <main>
+            {{#if globalError}}
+            <span>{{globalError}}</span>
+            {{else if session.globalError}}
+            <span>{{session.globalError}}</span>
+            {{/if}}
+            {{{body}}}
+        </main>
+    </div>
+</body>
+</html>

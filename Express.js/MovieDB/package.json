@@ -1,0 +1,9 @@
+{
+  "name": "movie-db",
+  "version": "0.0.0",
+  "description": "MovieDB",
+  "main": "server.js",
+  "author": {
+    "name": ""
+  }
+}
