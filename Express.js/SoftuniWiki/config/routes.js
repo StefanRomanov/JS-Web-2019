@@ -15,7 +15,7 @@ module.exports = app => {
     app.get('/article/details/:id', controllers.article.details);
     app.get('/article/edit/:id',restrictedPages.isAuthed, controllers.article.editGet);
     app.post('/article/edit/:id',restrictedPages.isAuthed, controllers.article.editPost);
-    app.get('/article/history/:id',restrictedPages.isAuthed, controllers.article.lock);
+    app.get('/article/history/:id',restrictedPages.isAuthed, controllers.article.history);
     app.get('/article/lock/:id', restrictedPages.hasRole('Admin'), controllers.article.lock);
     app.get('/article/unlock/:id', restrictedPages.hasRole('Admin'), controllers.article.unlock);
     app.get('/article/latest', controllers.article.latest);
