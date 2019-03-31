@@ -1,0 +1,8 @@
+<div class="card">
+  <img *ngIf="movie.poster_path" class="card-img-top" src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}">
+  <div class="card-body">
+    <h4 class="card-title">{{movie.title}}</h4>
+    <p class="card-text">Released: {{movie.release_date}}</p>
+    <p><a class="btn btn-primary" routerLink="/movies/{{movie.id}}">View Details</a></p>
+  </div>
+</div>

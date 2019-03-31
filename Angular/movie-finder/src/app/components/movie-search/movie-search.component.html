@@ -1,0 +1,13 @@
+<div class="panel panel-default m-5">
+  <div class="panel-heading">
+    <h2 class="panel-title">Found movies</h2>
+    <hr>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-2" *ngFor="let movie of movies">
+        <app-movie-card [movie]="movie"></app-movie-card>
+      </div>
+    </div>
+  </div>
+</div>
